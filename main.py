@@ -86,5 +86,5 @@ if __name__ == "__main__":
         elif opcion == 6:
             funciones.menu_del_dia()
         elif opcion == 7:
-            print("Gracias por consultar nuestro menú")
+            print("¡Gracias por consultar nuestro menú!")
             break

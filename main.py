@@ -17,7 +17,7 @@ def init(plato, nom, clas, tip, tiem, prec ):
 def write(plato):
     print '- Tipo:', plato.tipo, ' '
     print '- Nombre:', plato.nombre, ' '
-    print '- Clasificacion:', plato.clasificacion, ' '
+    print '- Clasificación:', plato.clasificacion, ' '
     print '- Tiempo:', plato.tiempo, ' '
     print '- Precio:', plato.precio, ' '
 
@@ -36,7 +36,7 @@ def cargar(vector):
        print()
        tipo = input('Ingrese el tipo de plato: ')
        nombre = input('Ingrese el nombre del plato: ')
-       clasificacion = input('Ingrese la clasificacion: ')
+       clasificacion = input('Ingrese la clasificación: ')
        tiempo = int(input('Ingrese el tiempo de cocción: '))
        precio = int(input('Ingrese el precio:  '))
 
@@ -52,12 +52,12 @@ def cargar_aleatorio():
         v[i] = random.randint(0,2)
 
 def mostrar_menu():
-    print("1)Consultar Carta")
-    print("2)Calcular Precio Promedio")
-    print("3)Buscar Comida Con Menor Tiempo De Cocción")
-    print("4)Calcular y Mostrar La Cantidad De Comidas Por Tipo ")
-    print("5)Buscar En La Carta Un Plato Principal")
-    print("6)Mostrar El Menu Del Dia Completo")
+    print("1)Consultar carta")
+    print("2)Calcular precio promedio")
+    print("3)Buscar comida con menor tiempo de cocción")
+    print("4)Calcular y mostrar la cantidad de comidas por tipo ")
+    print("5)Buscar en la carta un plato principal")
+    print("6)Mostrar el menu del día completo")
     print("7)Salir")
 
 opcion = 0
@@ -78,5 +78,5 @@ while opcion != 7:
     elif opcion == 6:
         menu_del_dia
     elif opcion== 7:
-        print("Gracias por consultar nuestro menú")
+        print("¡Gracias por consultar nuestro menú!")
         break

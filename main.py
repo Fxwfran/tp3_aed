@@ -59,12 +59,12 @@ def cargar_aleatorio():
 
 
 def mostrar_menu():
-    print("1)Consultar Carta")
-    print("2)Calcular Precio Promedio")
-    print("3)Buscar Comida Con Menor Tiempo De Cocción")
-    print("4)Calcular y Mostrar La Cantidad De Comidas Por Tipo ")
-    print("5)Buscar En La Carta Un Plato Principal")
-    print("6)Mostrar El Menu Del Dia Completo")
+    print("1)Consultar carta: ")
+    print("2)Calcular precio promedio: ")
+    print("3)Buscar comida con menor tiempo de cocción: ")
+    print("4)Calcular y mostrar la cantidad de comidas por tipo: ")
+    print("5)Buscar en la carta un plato principal: ")
+    print("6)Mostrar el menu del día completo: ")
     print("7)Salir")
 
 opcion = 0

@@ -70,21 +70,24 @@ def mostrar_menu():
 opcion = 0
 
 if __name__ == "__main__":
-    while opcion != 7:
-        mostrar_menu()
-        opcion = input("Ingrese La opción deseada: ")
-        if opcion == 1:
-            funciones.mostrar_carta()
-        elif opcion == 2:
-            funciones.precio_promedio()
-        elif opcion == 3:
-            funciones.menor_tiempo_coccion()
-        elif opcion == 4:
-            funciones.comida_tipo()
-        elif opcion == 5:
-            funciones.buscar_y_sugerir()
-        elif opcion == 6:
-            funciones.menu_del_dia()
-        elif opcion == 7:
-            print("¡Gracias por consultar nuestro menú!")
-            break
+    manual = input('¿Desea cargar las comidas de forma manual? Y/N')
+    if manual == 'Y' or manual == 'y':
+        funciones.carga_manual()
+        while opcion != 7:
+            mostrar_menu()
+            opcion = input("Ingrese La opción deseada: ")
+            if opcion == 1:
+                funciones.mostrar_carta()
+            elif opcion == 2:
+                funciones.precio_promedio()
+            elif opcion == 3:
+                funciones.menor_tiempo_coccion()
+            elif opcion == 4:
+                funciones.comida_tipo()
+            elif opcion == 5:
+                funciones.buscar_y_sugerir()
+            elif opcion == 6:
+                funciones.menu_del_dia()
+            elif opcion == 7:
+                print("¡Gracias por consultar nuestro menú!")
+                break

@@ -20,3 +20,7 @@ def buscar_y_sugerir():
 
 def menu_del_dia():
     pass
+
+
+def carga_manual():
+    pass

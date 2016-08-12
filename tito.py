@@ -30,7 +30,7 @@ def crear_vector():
     return vector
 
 def crear():
-    vector = 3 * [None]
+    vector = 5 * [None]
     return vector
 
 

@@ -1,5 +1,10 @@
 import random
-
+comidas = "milanesas", "asado", "hamburguesas", "tortillas","alfajor", "flan", "helado", "frutillas con crema"\
+    ,"vitel tone", "Tabla de fiambres", "empanadas"
+tipos = "Entrada", "Principal", "Postre"
+clasificaciones = "Sin TACC", "estandar", "Vegetariano", "Light"
+precios = 100, 50, 80, 60, 90
+tiempos = 10, 50, 60, 20, 30
 
 class Restaurante():
     pass
@@ -24,6 +29,10 @@ def crear_vector():
 
     return vector
 
+def crear():
+    vector = 3 * [None]
+    return vector
+
 
 # Se pasa a cargar los registros en el vector
 def cargar(vector):
@@ -39,23 +48,32 @@ def cargar(vector):
         vector[x] = Restaurante()
         init(vector[x], tipo, nombre, clasificacion, tiempo, precio)
 
-   
+
 
 
 # Carga del vector de manera aleatoria
-def cargar_aleatorio():
-    n = 3
-    v = 3 * [None]
-    for i in v:
-        v[i] = random.randint(0, 2)
+def cargar_aleatorio(vector):
+    n = len(vector)
+    for x in range(n):
+        tipo = random.choice(tipos)
+        nombre = random.choice (comidas)
+        clasificacion = random. choice (clasificaciones)
+        tiempo = random.choice(tiempos)
+        precio = random.choice(precios)
+
+        vector[x] = Restaurante()
+        init(vector[x], tipo, nombre, clasificacion, tiempo, precio)
+
+
+
 
 def mostrar_carta(vector):
     for i in vector:
         print ('- Tipo:', i.tipo, ' ')
         print ('- Nombre:', i.nombre, ' ')
         print ('- Clasificacion:', i.clasificacion, ' ')
-        print ('- Tiempo:', i.tiempo, ' ')
-        print ('- Precio:', i.precio, ' ')
+        print ('- Tiempo:', i.tiempo,'Min ')
+        print ('- Precio:$',i.precio, ' ')
         print("\n")
 
 def precio_promedio(vector):
@@ -95,34 +113,40 @@ if __name__ == "__main__":
     if manual == 'Y' or manual == 'y':
         vector = crear_vector()
         cargar(vector)
-        while opcion != 7:
-            mostrar_menu()
-            opcion = int(input("Ingrese La opción deseada: "))
 
-            if opcion == 1:
-                mostrar_carta(vector)
-                input("precione enter para continuar\n")
+    elif manual == "N" or manual == "n":
+        vector = crear()
+        cargar_aleatorio(vector)
 
-            elif opcion == 2:
-                print("El Precio promedio es $",precio_promedio(vector))
-                input("precione enter para continuar\n")
 
-            elif opcion == 3:
-                menor_tiempo_coccion(vector)
-                input("precione enter para continuar\n")
+while opcion != 7:
+    mostrar_menu()
+    opcion = int(input("Ingrese La opción deseada: "))
 
-            elif opcion == 4:
-                comida_tipo()
-                input("precione enter para continuar\n")
+    if opcion == 1:
+        mostrar_carta(vector)
+        input("precione enter para continuar\n")
 
-            elif opcion == 5:
-                buscar_y_sugerir()
-                input("precione enter para continuar\n")
+    elif opcion == 2:
+        print("El Precio promedio es $",precio_promedio(vector))
+        input("precione enter para continuar\n")
 
-            elif opcion == 6:
-                menu_del_dia()
-                input("precione enter para continuar\n")
+    elif opcion == 3:
+        menor_tiempo_coccion(vector)
+        input("precione enter para continuar\n")
 
-            elif opcion == 7:
-                print("¡Gracias por consultar nuestro menú!")
-                break
+    elif opcion == 4:
+        comida_tipo()
+        input("precione enter para continuar\n")
+
+    elif opcion == 5:
+        buscar_y_sugerir()
+        input("precione enter para continuar\n")
+
+    elif opcion == 6:
+        menu_del_dia()
+        input("precione enter para continuar\n")
+
+    elif opcion == 7:
+        print("¡Gracias por consultar nuestro menú!")
+        break

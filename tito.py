@@ -28,7 +28,7 @@ def crear_vector():
     vector = n * [None]
 
     return vector
-
+# Crea el vector
 def crear():
     vector = 5 * [None]
     return vector
@@ -66,7 +66,7 @@ def cargar_aleatorio(vector):
 
 
 
-
+# Las 3 Funciones ya listas del menu
 def mostrar_carta(vector):
     for i in vector:
         print ('- Tipo:', i.tipo, ' ')
@@ -96,7 +96,7 @@ def menor_tiempo_coccion(vector):
 
 
 
-
+#Menu
 def mostrar_menu():
     print("1)Consultar carta: ")
     print("2)Calcular precio promedio: ")

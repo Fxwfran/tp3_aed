@@ -1,6 +1,6 @@
 import random
 comidas = "milanesas", "asado", "hamburguesas", "tortillas","alfajor", "flan", "helado", "frutillas con crema"\
-    ,"vitel tone", "Tabla de fiambres", "empanadas"
+    ,"vitel tone", "Tabla de fiambres", "empanadas", "piza"
 tipos = "Entrada", "Principal", "Postre"
 clasificaciones = "Sin TACC", "estandar", "Vegetariano", "Light"
 precios = 100, 50, 80, 60, 90

@@ -1,5 +1,4 @@
 import random
-import funciones
 
 
 class Restaurante():
@@ -7,10 +6,10 @@ class Restaurante():
 
 
 # Creando la funcion para cargar los registros al vector
-def init(plato, nom, clas, tip, tiem, prec):
+def init(plato,tip, nom, clas, tiem, prec):
+    plato.tipo = tip
     plato.nombre = nom
     plato.clasificacion = clas
-    plato.tipo = tip
     plato.tiempo = tiem
     plato.precio = prec
 
@@ -26,7 +25,7 @@ def crear_vector():
     return vector
 
 
-# Se pasa a cargar los registros en el vector, tambien pregunta si desea ver el vector
+# Se pasa a cargar los registros en el vector
 def cargar(vector):
     n = len(vector)
     for x in range(n):
@@ -40,7 +39,7 @@ def cargar(vector):
         vector[x] = Restaurante()
         init(vector[x], tipo, nombre, clasificacion, tiempo, precio)
 
-    print()
+   
 
 
 # Carga del vector de manera aleatoria
@@ -74,8 +73,8 @@ def menor_tiempo_coccion(vector):
     for i in vector:
         if i.tiempo < valor:
             valor = i.tiempo
-
-    return valor
+            comida = i.nombre
+    print("El plato con menor tiempo de cocción es  tiempo de cocción es",comida, "con tiempo", valor)
 
 
 
@@ -99,31 +98,31 @@ if __name__ == "__main__":
         while opcion != 7:
             mostrar_menu()
             opcion = int(input("Ingrese La opción deseada: "))
-            
+
             if opcion == 1:
                 mostrar_carta(vector)
                 input("precione enter para continuar\n")
-            
+
             elif opcion == 2:
                 print("El Precio promedio es $",precio_promedio(vector))
                 input("precione enter para continuar\n")
-            
+
             elif opcion == 3:
-                print("El menor tiempo de cocción es",menor_tiempo_coccion(vector))
+                menor_tiempo_coccion(vector)
                 input("precione enter para continuar\n")
-            
+
             elif opcion == 4:
-                funciones.comida_tipo()
+                comida_tipo()
                 input("precione enter para continuar\n")
-            
+
             elif opcion == 5:
-                funciones.buscar_y_sugerir()
+                buscar_y_sugerir()
                 input("precione enter para continuar\n")
-            
+
             elif opcion == 6:
-                funciones.menu_del_dia()
+                menu_del_dia()
                 input("precione enter para continuar\n")
-            
+
             elif opcion == 7:
                 print("¡Gracias por consultar nuestro menú!")
                 break

@@ -1,4 +1,6 @@
-# tp3_aed
+# Terminado!
 El archivo main.py es el que tiene las funciones principales de la carga y selección a través del menú.
+
 El archivo funciones.py es el que tiene las funciones específicas a cada punto del TP.
-Ignoren el resto de los archivos, son basura que se crea cuando actualizamos el repo.
+
+En esos dos archivos consiste el trabajo práctico, en breve se los paso por zip en whatsapp.

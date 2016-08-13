@@ -1,61 +1,5 @@
 # coding:utf-8
-import random
 import funciones
-
-
-class Restaurante():
-    pass
-
-
-# Creando la funcion para cargar los registros al vector
-def init(plato, nom, clas, tip, tiem, prec):
-    plato.nombre = nom
-    plato.clasificacion = clas
-    plato.tipo = tip
-    plato.tiempo = tiem
-    plato.precio = prec
-
-
-# La funcion que nos permite visualizar el vector de registros, de manera ordenada. evitando
-# que al poner print() nos muestre la referencia en la memoria
-def write(plato):
-    print '- Tipo:', plato.tipo, ' '
-    print '- Nombre:', plato.nombre, ' '
-    print '- Clasificacion:', plato.clasificacion, ' '
-    print '- Tiempo:', plato.tiempo, ' '
-    print '- Precio:', plato.precio, ' '
-
-
-# Pedimos el largo del vector y creamos uno de n Nones
-def crear_vector():
-    n = int(input('Ingrese la cantidad de platos que desea cargar: '))
-    vector = n * [None]
-
-    return vector
-
-
-# Se pasa a cargar los registros en el vector, tambien pregunta si desea ver el vector
-def cargar(vector):
-    n = len(vector)
-    for x in range(n):
-        print()
-        tipo = input('Ingrese el tipo de plato: ')
-        nombre = input('Ingrese el nombre del plato: ')
-        clasificacion = input('Ingrese la clasificacion: ')
-        tiempo = int(input('Ingrese el tiempo de cocción: '))
-        precio = int(input('Ingrese el precio:  '))
-
-        vector[x] = Restaurante()
-        init(vector[x], tipo, nombre, clasificacion, tiempo, precio)
-    print()
-
-
-# Carga del vector de manera aleatoria
-def cargar_aleatorio():
-    n = 3
-    v = 3 * [None]
-    for i in v:
-        v[i] = random.randint(0, 2)
 
 
 def mostrar_menu():
@@ -66,28 +10,56 @@ def mostrar_menu():
     print("5)Buscar en la carta un plato principal: ")
     print("6)Mostrar el menu del día completo: ")
     print("7)Salir")
+    print()
+
 
 opcion = 0
 
 if __name__ == "__main__":
-    manual = input('¿Desea cargar las comidas de forma manual? Y/N')
+    manual = str(input('¿Desea cargar las comidas de forma manual? Y/N '))
+    while manual != 'y' and manual != 'Y' and manual != 'n' and manual != 'N':
+        print('Limítese a usar Y o N')
+        manual = str(input('¿Desea cargar las comidas de forma manual? Y/N '))
     if manual == 'Y' or manual == 'y':
-        funciones.carga_manual()
-        while opcion != 7:
-            mostrar_menu()
-            opcion = input("Ingrese La opción deseada: ")
-            if opcion == 1:
-                funciones.mostrar_carta()
-            elif opcion == 2:
-                funciones.precio_promedio()
-            elif opcion == 3:
-                funciones.menor_tiempo_coccion()
-            elif opcion == 4:
-                funciones.comida_tipo()
-            elif opcion == 5:
-                funciones.buscar_y_sugerir()
-            elif opcion == 6:
-                funciones.menu_del_dia()
-            elif opcion == 7:
-                print("¡Gracias por consultar nuestro menú!")
-                break
+        vector = funciones.crear_vector()
+        funciones.cargar(vector)
+    elif manual == 'N' or manual == 'n':
+        vector = 12 * [None]
+        funciones.auto_cargar(vector)
+    while opcion != 7:
+        mostrar_menu()
+        opcion = int(input("Ingrese La opción deseada: "))
+        print()
+
+        if opcion == 1:
+            funciones.mostrar_carta(vector)
+            input("Presione enter para continuar\n")
+
+        elif opcion == 2:
+            print("El Precio promedio es $"+str(funciones.precio_promedio(vector)))
+            input("Presione enter para continuar\n")
+
+        elif opcion == 3:
+            print("La comida con menor tiempo de cocción es", funciones.menor_tiempo_coccion(vector)[0], "y demora",
+                  funciones.menor_tiempo_coccion(vector)[1], "minutos.")
+            input("Presione enter para continuar\n")
+
+        elif opcion == 4:
+            clasif = input(
+                "Elija la clasificación de su comida (0: Estandar / 1: Sin TACC / 2: Vegetariano / 3: Light): ")
+            funciones.comida_tipo(clasif, vector)
+            input("Presione enter para continuar\n")
+
+        elif opcion == 5:
+            nombre = input('Escriba el nombre del plato que desea buscar: ')
+            funciones.buscar_y_sugerir(nombre, vector)
+            input("Presione enter para continuar\n")
+
+        elif opcion == 6:
+            clasif = input(
+                "Elija la clasificación de su comida (0: Estandar / 1: Sin TACC / 2: Vegetariano / 3: Light): ")
+            funciones.menu_del_dia(vector, clasif)
+            input("Presione enter para continuar\n")
+
+        elif opcion == 7:
+            print("¡Gracias por consultar nuestro menú!")
